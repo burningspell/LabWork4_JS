@@ -1,0 +1,203 @@
+﻿
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<title>Халиуллин</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			body {
+				background-color: #bfa99e;
+			}
+		</style>
+		<link rel="stylesheet" href="jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+<script src="jquery-ui.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			$(function(){
+			  $( function() {
+		$( document ).tooltip();
+	  } );
+	$("#accordion" ).accordion({  collapsible: true });  
+          $('#tabs').tabs(); 
+		  $('#dialog1').dialog({ autoOpen: false, width: 300 });
+      $('#dialog2').dialog({ autoOpen: false, width: 300 });
+      $('#dialog3').dialog({ autoOpen: false, width: 300 });
+	  $("#btn1").click(function(){ 
+        $( "#dialog1" ).dialog('open'); 
+      })
+      $("#btn2").click(function(){ 
+        $( "#dialog2" ).dialog('open'); 
+      })
+      $("#btn3").click(function(){ 
+        $( "#dialog3" ).dialog('open'); 
+      })
+      $('#slider1').slider({
+		    min: 1,
+	    	max: 10,
+        change: function (event, ui){
+            var val = $('#slider1').slider('value');
+            $('#sliderValue1').html(val);
+        }
+    });
+    $('#slider2').slider({
+		    min: 1,
+	    	max: 10,
+        change: function (event, ui){
+            var val = $('#slider2').slider('value');
+            $('#sliderValue2').html(val);
+        }
+    });
+    $('#slider3').slider({
+		    min: 1,
+	    	max: 10,
+        change: function (event, ui){
+            var val = $('#slider3').slider('value');
+            $('#sliderValue3').html(val);
+        }
+    });
+	$.datepicker.regional['ru'] = {
+	closeText: 'Закрыть',
+	prevText: 'Предыдущий',
+	nextText: 'Следующий',
+	currentText: 'Сегодня',
+	monthNames: ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],
+	monthNamesShort: ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек'],
+	dayNames: ['воскресенье','понедельник','вторник','среда','четверг','пятница','суббота'],
+	dayNamesShort: ['вск','пнд','втр','срд','чтв','птн','сбт'],
+	dayNamesMin: ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'],
+	weekHeader: 'Не',
+	dateFormat: 'dd.mm.yy',
+	firstDay: 1,
+	isRTL: false,
+	showMonthAfterYear: false,
+	yearSuffix: ''
+};
+	$.datepicker.setDefaults( $.datepicker.regional[ "ru" ] );
+		  $(".date").datepicker({ });
+		  var mesto = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"]; 
+	  $(".mesto" ).click(function(){
+		$(".mesto").autocomplete({ source: mesto });
+	});
+	var ryad = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"]; 
+	  $(".ryad" ).click(function(){
+		$(".ryad").autocomplete({ source: ryad });
+	});
+	$(".puy" ).click(function(){
+		$('.dia').dialog('open'); })
+	$('.dia').dialog({ autoOpen: false, width: 300, buttons:{
+        "да": function(){ $( ".yes" ).dialog('open'),$('.dia').dialog('close');   }
+    }})
+	$( ".yes" ).dialog({autoOpen: false, width: 300});
+	$("#price1" ).click(function(){
+    var k = $('#slider1').slider('value');
+    var price = 150*k;
+    document.getElementById('price1').value = price;
+  })
+  $("#price2" ).click(function(){
+    var k = $('#slider2').slider('value');
+    var price = 170*k;
+    document.getElementById('price2').value = price;
+  })
+  $("#price3" ).click(function(){
+    var k = $('#slider3').slider('value');
+    var price = 150*k;
+    document.getElementById('price3').value = price;
+  })
+
+
+  } )
+ 
+			 </script>
+			  <div class="dia" title="Подтвердите покупку">Вы действительно хотите купить билеты?</div>
+			  <div class="yes" title="Спасибо за покупку!">Ждем Вас в молодежном театре!</div>
+			<h2>Афиша мероприятий в Молодежном театре г. Уфы</h2>
+			<h3>Спектакли:</h3>
+			<span id="accordion">
+				<h3>Пеппи Длинныйчулок</h3> <div>
+				<p>
+					7 июня, 11:00, Понедельник
+					
+				</div> 
+				<h3>Волшебная мельница</h3> <div>
+				<p>8 июня, 10:15, Вторник
+			  </p>
+				</div> 
+				<h3>Чиполлино</h3> <div>
+				<p>9 июня, 10:15, Среда </div> 
+				</span><br>
+				<h3>Приобретайте билеты:</h3>
+				<div id="tabs" style="width: 40%;"> <ul> 
+					<li><a href="#tabs-1">Пеппи Длинныйчулок</a></li> 
+					<li><a href="#tabs-2">Волшебная мельница</a></li> 
+					<li><a href="#tabs-3">Чиполлино</a></li> </ul> 
+					<div id="tabs-1"> <h2>Пеппи Длинныйчулок</h2> 
+					  
+					  <p>Кто не знает Пеппи? Пеппи знают все! Рыжая бестия в огромных ботинках, с озорной симпатичной мордашкой, хитрыми глазками, но с добрым сердцем и щедрой душой. Наша веселая, бесшабашная фантазерка приглашает всех ребят в мир фантазии, путешествий и забавных приключений. <br>
+						<img src="https://teatrnmt.ru/wp-content/uploads/2021/03/5465567_orig.jpg" alt="" style=" width: 50%;">
+						<br><p>Цена: 150р</p><br>
+						<button id="btn1">Купить</button></p> 
+					  </div>
+					  <div id="tabs-2" > <h2>Волшебная мельница</h2> 
+						<p>В ожидании чуда, Петух, главный герой сказки, решает отыскать Волшебную мельницу, завещанную ему прадедом. Его друзья, цыплёнок, щенок, кот и другие персонажи, не желая оставаться в стороне, тоже принимают участие в поиске. Что происходит дальше, вы узнаете, посмотрев эту интересную волшебную сказку, в которой такие ценности как доброта, трудолюбие и справедливость не утратили своего значения. Спектакль поставлен по мотивам пьесы народного поэта Башкортостана Мустая Карима «Петушиная мельница».
+							<br> <img src="https://teatrnmt.ru/wp-content/uploads/2021/03/ng_volsh.-melnicza-a3-2.jpg" alt="">
+						  <br><p>Цена: 170р</p><br>
+						  <button id="btn2">Купить</button></p> 
+						</div> 
+						<div id="tabs-3" > <h2>Чиполлино</h2> 
+							
+							<p>Известная сказка Джанни Родари оживает на сцене Молодёжного театра! Главный герой этой истории — мальчик-луковка Чиполлино! Успеет ли Чиполлино освободить жителей сказочной страны от власти жестокого принца Лимона, злющего сеньора Помидора и противных графинь Вишен? Вспомнит ли он, что всегда нужно оставаться искренним, правдивым и честным?
+								<img src="https://teatrnmt.ru/wp-content/uploads/2021/03/407884_orig.jpg" alt="" style=" width: 50%;">
+								<br><p>Цена: 150р</p><br>
+							  <button id="btn3">Купить</button></p> 
+							</div>
+							<div id="dialog1" title="Купить билет на спектакль Пеппи Длинныйчулок">
+								<form action="">
+								  ФИО: <input type="text"><br><br>
+								  Дата рождения:  <input type="text"  class="date"><br><br>
+								 Ряд:<input type="text"  class="ryad"><br><br>
+								 Место:<input type="text"  class="mesto"><br><br>
+								  Количество билетов: <p style="display: inline;" id="sliderValue1"></p>
+								  <br><br>
+								  <div id="slider1" style="width: 100%;"></div> <br>
+								  email:  <input type="text"  class="date"><br><br>
+								  Промокод: <input type="text"><br><br>
+								 Итого: <input type="text"id="price1" title="Нажмите и программа выведет сумму за билет (-ы)" ><br><br>
+								</form>
+								<input type="button" class="puy" value="Купить">
+							  </div>
+							  <div id="dialog2" title="Купить билет на концерт Звери">
+								<form action="">
+								  ФИО: <input type="text"><br><br>
+								  Дата рождения:  <input type="text"  class="date"><br><br>
+								  Ряд:<input type="text"  class="ryad"><br><br>
+								  Место:<input type="text"  class="mesto"><br><br>
+								  Количество билетов: <p style="display: inline;" id="sliderValue2"></p>
+								  <br><br>
+								  <div id="slider2" style="width: 100%;"></div> <br>
+								  email:  <input type="text"  class="date"><br><br>
+								  Промокод: <input type="text"><br><br>
+								 Итого: <input type="text"id="price2" title="Нажмите и программа выведет сумму за билет (-ы)" ><br><br>
+								</form>
+								<input type="button" class="puy" value="Купить">
+							  </div>
+							  <div id="dialog3" title="Купить билет на концерт Стендап: Дедищев, Чабдаров, Детков">
+								<form action="">
+								  ФИО: <input type="text"><br><br>
+								  Дата рождения:  <input type="text"  class="date"><br><br>
+								  Ряд:<input type="text"  class="ryad"><br><br>
+								  Место:<input type="text"  class="mesto"><br><br>
+								  Количество билетов: <p style="display: inline;" id="sliderValue3"></p>
+								  <br><br>
+								  <div id="slider3" style="width: 100%;"></div> <br>
+								  email:  <input type="text"  class="date"><br><br>
+								  Промокод: <input type="text"><br><br>
+								 Итого: <input type="text"id="price3" title="Нажмите и программа выведет сумму за билет (-ы)" ><br><br>
+								</form>
+								<input type="button" class="puy" value="Купить">
+							  </div>
+			</body>
+	</html> 
